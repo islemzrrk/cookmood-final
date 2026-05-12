@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.cookmood.controller.MainController"
+      styleClass="root-pane"
+      spacing="18">
+
+    <padding>
+        <Insets top="28" right="40" bottom="28" left="40"/>
+    </padding>
+
+    <!-- =============== HEADER =============== -->
+    <VBox alignment="CENTER" spacing="6">
+        <Label fx:id="greetingLabel" text="Bonjour zarrouk 👋" styleClass="title"/>
+        <Label text="Découvrez, partagez et sauvegardez vos recettes préférées"
+               styleClass="subtitle"/>
+    </VBox>
+
+    <!-- =============== ACTION BAR =============== -->
+    <HBox spacing="14" alignment="CENTER">
+        <Button fx:id="searchTabBtn" text="🔍  Rechercher"
+                styleClass="action-btn" onAction="#onSearchTab" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button fx:id="allBtn" text="📖  Toutes les recettes"
+                styleClass="action-btn" onAction="#onShowAll" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button fx:id="addBtn" text="➕  Ajouter une recette"
+                styleClass="action-btn" onAction="#onAddRecipe" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button fx:id="favBtn" text="⭐  Mes Favoris  0"
+                styleClass="action-btn" onAction="#onShowFavorites" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    </HBox>
+
+    <!-- =============== FILTER PANEL =============== -->
+    <VBox spacing="10" styleClass="filter-card">
+        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+        <ComboBox fx:id="moodCombo" promptText="Choisir votre humeur" maxWidth="Infinity"
+                  styleClass="filter-input"/>
+        <ComboBox fx:id="weatherCombo" promptText="Choisir la météo" maxWidth="Infinity"
+                  styleClass="filter-input"/>
+
+        <HBox spacing="10">
+            <TextField fx:id="ingredientsField" promptText="tomate, riz, poulet..."
+                       HBox.hgrow="ALWAYS" styleClass="filter-input"/>
+            <Button text="Rechercher" styleClass="search-btn" onAction="#onSearch"/>
+        </HBox>
+    </VBox>
+
+    <!-- =============== RESULTS =============== -->
+    <Label fx:id="resultsCountLabel" text="0 recette(s) trouvée(s)" styleClass="results-count"/>
+
+    <ScrollPane fx:id="resultsScroll" fitToWidth="true" styleClass="results-scroll"
+                VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="recipesPane" hgap="20" vgap="20"
+                  prefWrapLength="1000" styleClass="recipes-pane">
+            <padding><Insets top="4" right="4" bottom="20" left="4"/></padding>
+        </FlowPane>
+    </ScrollPane>
+
+</VBox>

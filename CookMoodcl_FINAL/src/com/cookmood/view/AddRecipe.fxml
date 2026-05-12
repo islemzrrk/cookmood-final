@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.cookmood.controller.AddRecipeController"
+      styleClass="root-pane"
+      spacing="12">
+
+    <padding>
+        <Insets top="22" right="28" bottom="22" left="28"/>
+    </padding>
+
+    <Label text="➕  Ajouter une nouvelle recette" styleClass="title"/>
+    <Label text="Renseignez les informations ci-dessous" styleClass="subtitle"/>
+
+    <Label text="Nom de la recette" styleClass="field-label"/>
+    <TextField fx:id="nomField" promptText="Ex : Couscous au poulet" styleClass="filter-input"/>
+
+    <HBox spacing="12">
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Humeur" styleClass="field-label"/>
+            <ComboBox fx:id="moodCombo" maxWidth="Infinity" styleClass="filter-input"
+                      promptText="Choisir une humeur"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Météo" styleClass="field-label"/>
+            <ComboBox fx:id="weatherCombo" maxWidth="Infinity" styleClass="filter-input"
+                      promptText="Choisir une météo"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="12">
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Auteur" styleClass="field-label"/>
+            <TextField fx:id="auteurField" promptText="Votre nom" styleClass="filter-input"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Durée (minutes)" styleClass="field-label"/>
+            <Spinner fx:id="dureeSpinner" editable="true" styleClass="filter-input"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Type" styleClass="field-label"/>
+            <ComboBox fx:id="typeCombo" maxWidth="Infinity" styleClass="filter-input"
+                      promptText="Type"/>
+        </VBox>
+    </HBox>
+
+    <Label text="Icône (emoji)" styleClass="field-label"/>
+    <TextField fx:id="iconeField" promptText="🍲   🥗   🥟   🍳   🍯..." styleClass="filter-input"/>
+
+    <Label text="Ingrédients (séparés par des virgules)" styleClass="field-label"/>
+    <TextField fx:id="ingredientsField" promptText="tomate, oignon, ail, ..." styleClass="filter-input"/>
+
+    <Label text="Description courte" styleClass="field-label"/>
+    <TextField fx:id="descriptionField" promptText="Une phrase d'accroche pour la carte"
+               styleClass="filter-input"/>
+
+    <Label text="Instructions" styleClass="field-label"/>
+    <TextArea fx:id="instructionsArea" prefRowCount="5"
+              promptText="Décrivez les étapes de préparation..." styleClass="filter-input"/>
+
+    <CheckBox fx:id="alcoolCheck" text="Contient de l'alcool"/>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <Button text="Annuler" styleClass="action-btn" onAction="#onCancel"/>
+        <Button text="Enregistrer" styleClass="search-btn" onAction="#onSave"/>
+    </HBox>
+
+</VBox>

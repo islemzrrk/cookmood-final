@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.cookmood.controller.LoginController"
+      styleClass="root-pane"
+      alignment="CENTER"
+      spacing="20">
+
+    <padding>
+        <Insets top="40" right="60" bottom="40" left="60"/>
+    </padding>
+
+    <Label text="🍲" style="-fx-font-size: 56px;"/>
+    <Label text="CookMood" styleClass="title" style="-fx-font-size: 32px;"/>
+    <Label text="Connectez-vous pour découvrir des recettes adaptées à votre humeur"
+           styleClass="subtitle" wrapText="true"
+           style="-fx-text-alignment: center;"/>
+
+    <Region prefHeight="10"/>
+
+    <VBox spacing="14" maxWidth="380" styleClass="filter-card">
+        <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+
+        <Label text="Nom" styleClass="field-label"/>
+        <TextField fx:id="nomField" promptText="Ex : Zarrouk" styleClass="filter-input"/>
+
+        <Label text="Prénom" styleClass="field-label"/>
+        <TextField fx:id="prenomField" promptText="Ex : Islem" styleClass="filter-input"/>
+
+        <Label text="Âge" styleClass="field-label"/>
+        <Spinner fx:id="ageSpinner" editable="true" styleClass="filter-input"/>
+
+        <Region prefHeight="6"/>
+
+        <Button text="Se connecter ➜" styleClass="search-btn" onAction="#onLogin"
+                maxWidth="Infinity"
+                style="-fx-font-size: 14px; -fx-padding: 12 22 12 22;"/>
+    </VBox>
+
+    <Label text="🔞  Les recettes contenant de l'alcool seront masquées si vous avez moins de 18 ans."
+           styleClass="subtitle" wrapText="true"
+           style="-fx-text-alignment: center; -fx-font-size: 11px;"
+           maxWidth="380"/>
+
+</VBox>
